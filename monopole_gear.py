@@ -55,8 +55,8 @@ gear = pgw.SpurGear(
     height=1,
     pressure_angle=math.radians(config.PRESSURE_ANGLE_DEG),
     backlash=config.BACKLASH,
-    addendum_coefficient=config.ADDENDUM_COEF,
-    dedendum_coefficient=config.DEDENDUM_COEF
+    addendum_coefficient=config.DEDENDUM_COEF,
+    dedendum_coefficient=config.ADDENDUM_COEF
 )
 gear_wire = gear.build_boundary_wire(z_ratio=0)
 

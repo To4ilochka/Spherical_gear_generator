@@ -88,7 +88,7 @@ if getattr(config, 'ENABLE_PINS', True):
                            (config.PIN_OFFSET, -config.PIN_OFFSET),
                            (-config.PIN_OFFSET, config.PIN_OFFSET),
                            (-config.PIN_OFFSET, -config.PIN_OFFSET)):
-                RegularPolygon(radius=(config.PIN_DIAMETER / 2) + config.PIN_TOLERANCE, side_count=6)
+                Rectangle(width=config.PIN_DIAMETER + 2*config.PIN_TOLERANCE, height=config.PIN_DIAMETER + 2*config.PIN_TOLERANCE)
         extrude(amount=config.PIN_HOLE_DEPTH)
     m_holes = shape_to_manifold(b_holes.part)
     m_res = m_res - m_holes
