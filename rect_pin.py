@@ -1,4 +1,4 @@
-﻿from build123d import *
+from build123d import *
 import config
 import math
 import trimesh
@@ -9,9 +9,14 @@ print("==========================================")
 print(" GENERATING SINGLE RECTANGULAR PIN")
 print("==========================================")
 
+# Если нужно сделать штифт толще (чтобы не перепечатывать сферу)
+# Отверстие в сфере больше базового размера на 0.4 мм (2 * PIN_TOLERANCE).
+# Сейчас мы добавим штифту 0.3 мм, оставив микро-зазор всего 0.05 мм с каждой стороны для очень плотной посадки.
+EXTRA_THICKNESS = 0.3
+
 with BuildPart() as pin:
     with BuildSketch(Plane.XY):
-        Rectangle(width=config.PIN_DIAMETER, height=config.PIN_DIAMETER)
+        Rectangle(width=config.PIN_DIAMETER + EXTRA_THICKNESS, height=config.PIN_DIAMETER + EXTRA_THICKNESS)
     extrude(amount=config.PIN_LENGTH)
     
     top_faces = pin.faces().filter_by(Axis.Z)
