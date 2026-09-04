@@ -85,9 +85,9 @@ print("==========================================")
 
 t0 = time.time()
 print("Tessellating base...")
-m_base = shape_to_manifold(base_part.part)
+m_base = shape_to_manifold(base_part.part, tol=0.01, ang_tol=0.1)
 print("Tessellating cutter...")
-m_cutter = shape_to_manifold(cutter_part.part)
+m_cutter = shape_to_manifold(cutter_part.part, tol=0.01, ang_tol=0.1)
 print(f"Tessellation done in {time.time()-t0:.2f}s")
 
 print("\n==========================================")

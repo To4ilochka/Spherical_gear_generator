@@ -16,7 +16,7 @@ INVERT_PROFILE = True      # Если True, профиль поворачива�
 
 # Настройки для Monopole Gear
 MONOPOLE_TEETH = 16         # Количество зубьев Monopole (определяет передаточное число, например 32:16 = 2:1)
-MONOPOLE_BORE_DIAMETER = 16.0 # Диаметр сквозного отверстия в monopole gear (в мм)
+MONOPOLE_BORE_DIAMETER = 8.0  # Диаметр сквозного отверстия в monopole gear (в мм). 8.0 идеально для сферы 50мм.
 
 # Имена файлов для экспорта
 OUTPUT_SPHERE_STL = "spherical_gear.stl"
