@@ -18,12 +18,12 @@ Both gears mesh together with the correct conjugate tooth profile. The Spherical
 5. The sphere is cut in half at Z=0 for 3D printing.
 6. Alignment pin holes and counterbored screw holes are subtracted from the flat face.
 
-### Hexagonal Pin (`hex_pin.py`)
+### Rectangular Pin (`rect_pin.py`)
 
-Generates a single hexagonal alignment pin (`hex_pin.stl`) used to precisely align and connect the two halves of the spherical gear.
-- Features integrated holes for **M3 heat-set threaded inserts** (ruthex or similar).
+Generates a single rectangular alignment pin (`rect_pin.stl`) used to precisely align and connect the two halves of the spherical gear.
+- Features integrated holes/clearances for assembly.
 - Automatically scales its length and thickness based on the sphere's diameter.
-- Features small chamfers for easy insertion.
+- Features chamfers and fillets for easy insertion.
 
 ### Monopole Gear (`monopole_gear.py`)
 
@@ -41,6 +41,12 @@ All parameters in one place: diameter, tooth count, angles, and assembly toggles
 ## Installation
 
 Python **3.10+** (tested on 3.13).
+
+```bash
+pip install -r requirements.txt
+```
+
+Alternatively, install the required packages individually:
 
 ```bash
 pip install build123d numpy trimesh manifold3d py-gearworks
@@ -63,17 +69,17 @@ pip install build123d numpy trimesh manifold3d py-gearworks
 python spherical_gear.py
 
 # Generate the alignment pin
-python hex_pin.py
+python rect_pin.py
 
 # Generate the monopole gear (takes several minutes)
 python monopole_gear.py
 ```
 
-Output files (`spherical_gear.stl`, `hex_pin.stl`, `monopole_gear.stl`) will be saved in the current directory.
+Output files (`spherical_gear.stl`, `rect_pin.stl`, `monopole_gear.stl`) will be saved in the current directory.
 
 ## Assembly & Hardware
 
-To assemble the Spherical Gear, you will need to print **2x `spherical_gear.stl`** and **4x `hex_pin.stl`**.
+To assemble the Spherical Gear, you will need to print **2x `spherical_gear.stl`** and **4x `rect_pin.stl`**.
 
 Recommended hardware (for default settings):
 - **4x M3 Heat-Set Inserts** (4.5mm OD, 5mm Length) - melt these into the top and bottom of the printed hex pins.
